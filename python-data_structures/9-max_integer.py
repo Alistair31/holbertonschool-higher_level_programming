@@ -2,5 +2,5 @@
 def max_integer(my_list=[]):
     if my_list == "":
         return None
-    my_list.sort(reverse=True)
-    return my_list[0]
+    sortlist = sorted(my_list)
+    return sortlist[-1]
