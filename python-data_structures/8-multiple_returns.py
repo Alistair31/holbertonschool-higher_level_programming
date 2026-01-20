@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 def multiple_returns(sentence):
-    if sentence[0] == "":
-        return None
+    retlist = list(sentence)
+    if retlist == []:
+        return (0, None)
     else:
-        return len(sentence), sentence[0]
+        return len(retlist), retlist[0]
