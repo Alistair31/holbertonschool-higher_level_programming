@@ -14,13 +14,19 @@
 
 >>> add_integer(4, "School")
 Traceback (most recent call last):
-TypeError: a must be an integer
-
->>> add_integer(9 ,float('inf'))
-Traceback (most recent call last):
 TypeError: b must be an integer
 
->>> add_integer(float('NaN'))
+>>> add_integer(float('inf'), 0)
 Traceback (most recent call last):
-TypeError: a must be an integer
+ValueError: a must be an integer
 
+>>> add_integer(float('NaN'), 1)
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/doctest.py", line 1361, in __run
+    exec(compile(example.source, filename, "single",
+  File "<doctest 0-add_integer.txt[7]>", line 1, in <module>
+    add_integer(float('NaN'), 1)
+  File "/home/alistair31/holbertonschool-higher_level_programming/python-test_driven_development/0-add_integer.py", line 21, in add_integer
+    return int(a) + int(b)
+		^^^^^^
+    ValueError: cannot convert float NaN to integer
