@@ -11,7 +11,7 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """
-        Docstring for __init__
+        Initialise the parameter for the class
 
         :param self: recall of itself
         :param width: width of the rectangle
