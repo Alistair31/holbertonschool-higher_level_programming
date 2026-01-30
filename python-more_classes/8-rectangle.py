@@ -115,6 +115,8 @@ class Rectangle:
     def bigger_or_equal(rect_1, rect_2):
         if isinstance(rect_1, Rectangle) is False:
             raise TypeError("rect_1 must be an instance of Rectangle")
+        elif isinstance(rect_2, Rectangle) is False:
+            raise TypeError("rect_2 must be an instance of Rectangle")
         if Rectangle.area(rect_1) > Rectangle.area(rect_2):
             return rect_1
         elif Rectangle.area(rect_1) == Rectangle.area(rect_2):
