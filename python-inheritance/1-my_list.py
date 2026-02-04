@@ -6,12 +6,12 @@ Python-inheritance.1-my_list
 
 class MyList(list):
     """
-    Docstring for Mylist
+    Class that define a list
     """
 
     def print_sorted(self):
         """
-        Method ofr print a sorted list
+        Method of print a sorted list
 
         :param self: Recall itself (MyList)
         """
