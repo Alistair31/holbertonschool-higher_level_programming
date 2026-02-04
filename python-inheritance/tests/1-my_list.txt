@@ -1,0 +1,23 @@
+>>> MyList = __import__('1-my_list').MyList
+
+>>> my_list = MyList([1, 4, 2, 3, 5])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+>>> my_list =  MyList(["a", "d", "e", "b", "c"])
+>>> my_list.print_sorted()
+['a', 'b', 'c', 'd', 'e']
+
+>>> my_list =  MyList(["Ocelot", "Snake", "Octopus", "Wolf", "Raven", "Mantis"])
+>>> my_list.print_sorted()
+['Mantis', 'Ocelot', 'Octopus', 'Raven', 'Snake', 'Wolf']
+
+>>> my_list =  MyList([1.14, 4.58, 1.11, 3.98, 5.60])
+>>> my_list.print_sorted()
+[1.11, 1.14, 3.98, 4.58, 5.6]
+
+>>> my_list =  MyList([1.14, "vulkan", 1.11, 3, 5.60])
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+...
+TypeError: '<' not supported between instances of 'str' and 'float'
