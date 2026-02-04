@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-5-base_geometry: 1st step of creating a class BaseGeometry
+5-base_geometry: 1st step of creating a class BaseGeometry.
 """
 
 
