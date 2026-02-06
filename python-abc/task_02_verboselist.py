@@ -14,7 +14,7 @@ class VerboseList(list):
         super().append(item)
 
     def extend(self, item):
-        print(f"Extend the list with {item} items.")
+        print(f"Extended the list with {item} items.")
         super().extend(item)
 
     def remove(self, item):
