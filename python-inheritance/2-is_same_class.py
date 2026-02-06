@@ -12,5 +12,4 @@ def is_same_class(obj, a_class):
     :param a_class: class to check
     """
 
-    if type(obj) is a_class:
-        return True
+    return type(obj) is a_class
