@@ -18,7 +18,12 @@ class Handler(http.server.BaseHTTPRequestHandler):
         j = json.dumps({"name": "John", "age": 30, "city": "New York"})
         i = json.dumps({"version": "1.0", "description":
                         "A simple API built with http.server"})
-        if self.path == "/":
+        if self.path == "/favicon.ico":
+            self.send_response(204)
+            self.end_headers()
+            return
+
+        elif self.path == "/":
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
@@ -46,7 +51,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"404 Not Found")
+            self.wfile.write(b"Endpoint not found")
 
 
 if __name__ == "__main__":
