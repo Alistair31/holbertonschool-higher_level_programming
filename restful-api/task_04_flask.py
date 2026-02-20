@@ -31,7 +31,7 @@ def id_user(username):
         return jsonify({"error": "User not found"}), 404
 
 
-@app.route("users", methods=['POST'])
+@app.route("/users", methods=['POST'])
 def add_user():
     if request.method == 'POST':
         data = request.get_json()
