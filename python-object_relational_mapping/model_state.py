@@ -13,5 +13,5 @@ Base = declarative_base()
 class State(Base):
     """State class that maps to the 'states' table in the database."""
     __tablename__ = 'states'
-    id = Column("states_id", Integer, primary_key=True)
-    name = Column("states_name", String(128), nullable=False)
+    id = Column("id", Integer, primary_key=True)
+    name = Column("name", String(128), nullable=False)
