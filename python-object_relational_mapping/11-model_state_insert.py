@@ -17,10 +17,7 @@ if __name__ == "__main__":
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).filter(
-        State.name == "Louisiana").all()
-    if not states:
-        new_state = State(name="Louisiana")
-        session.add(new_state)
+    new_state = State(name="Louisiana")
+    session.add(new_state)
     session.commit()
     session.close()
