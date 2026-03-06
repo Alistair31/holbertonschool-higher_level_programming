@@ -23,17 +23,20 @@ def cities_by_state():
             db=database
         )
         cur = db.cursor()
-        cur.execute(
-            "SELECT cities.id, cities.name, states.name "
-            "FROM cities JOIN states ON cities.state_id = states.id "
-            "WHERE states.name = %s "
-            "ORDER BY cities.id ASC", (state_name,)
-        )
-
+        query = """
+        SELECT cities.name
+        FROM cities
+        JOIN states ON cities.state_id = states.id
+        WHERE states.name = %s
+        ORDER BY cities.id ASC
+        """
+        cur.execute(query, (state_name,))
         rows = cur.fetchall()
 
-        for row in rows:
-            print(row)
+        # Extraction des noms de villes
+        cities = [row[0] for row in rows]
+
+        print(", ".join(cities))
 
     except MySQLdb.Error as e:
         print(f"Error: {e}")
