@@ -26,8 +26,8 @@ def display_prompted_states():
         )
         cur = db.cursor()
         cur.execute("SELECT * FROM states "
-                    "WHERE name = %s", (state_name,))
-
+                    "WHERE name = '{}' "
+                    "ORDER BY id ASC".format(state_name))
         query_rows = cur.fetchall()
 
         for row in query_rows:
