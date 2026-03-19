@@ -26,7 +26,7 @@ class BaseGeometry:
         """
 
         if isinstance(value, int) is False:
-            raise TypeError("<name> must be an integer")
+            raise TypeError(f"{name} must be an integer")
         if isinstance(self.__width, int) is False:
             raise TypeError("width must be an integer")
         if isinstance(self.__height, int) is False:

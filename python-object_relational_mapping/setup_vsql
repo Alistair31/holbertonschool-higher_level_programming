@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Création de l'environnement virtuel (pas besoin de sudo)
+python3 -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+
+# Vérification root
+if [ "$EUID" -ne 0 ]; then
+  echo "Veuillez exécuter ce script avec sudo."
+  exit 1
+fi
+
+# Installation MySQL
+apt update
+apt install -y mysql-server
+
+# Installation MySQLdb
+apt-get install python3-dev
+apt-get install libmysqlclient-dev
+apt-get install zlib1g-dev
+pip3 install mysqlclient==2.0.3
+
+# Installation SQLAlchemy
+pip3 install SQLAlchemy==1.4.22

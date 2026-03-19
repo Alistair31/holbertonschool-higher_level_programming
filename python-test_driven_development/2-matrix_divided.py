@@ -17,8 +17,6 @@ def matrix_divided(matrix, div):
     for row in matrix:
         if isinstance(row, list) is False:
             raise TypeError(terrm)
-        if len(row) != len(matrix[0]):
-            raise TypeError(terrmrow)
         temp = []
         for i in row:
             if isinstance(div, (int, float)) is False:
