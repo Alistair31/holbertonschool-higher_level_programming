@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>My Flask App</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <h1>Items</h1>
+    <p>Here are some items:</p>
+    <ul>
+        {% for item in items %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    {% include 'footer.html' %}
+</body>
+</html>
