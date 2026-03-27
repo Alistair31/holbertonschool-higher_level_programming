@@ -11,6 +11,9 @@
         {% for item in items %}
         <li>{{ item }}</li>
         {% endfor %}
+        {%else%}
+        <li>No items available.</li>
+        {% endif %}
     </ul>
     {% include 'footer.html' %}
 </body>
