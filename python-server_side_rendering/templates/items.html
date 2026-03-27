@@ -9,11 +9,10 @@
     <p>Here are some items:</p>
     <ul>
         {% for item in items %}
-        <li>{{ item }}</li>
+            <li>{{ item }}</li>
+        {% else %}
+            <li>No items available.</li>
         {% endfor %}
-        {%else%}
-        <li>No items available.</li>
-        {% endif %}
     </ul>
     {% include 'footer.html' %}
 </body>
