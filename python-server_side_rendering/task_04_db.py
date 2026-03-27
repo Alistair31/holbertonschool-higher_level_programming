@@ -19,7 +19,7 @@ def create_database():
         )
     ''')
     cursor.execute('''
-        INSERT INTO Products (id, name, category, price)
+        INSERT OR IGNORE INTO Products (id, name, category, price)
         VALUES
         (1, 'Laptop', 'Electronics', 799.99),
         (2, 'Coffee Mug', 'Home Goods', 15.99)
@@ -52,6 +52,28 @@ def read_sql(product_id=None):
     rows = cursor.fetchall()
     conn.close()
     return [dict(row) for row in rows]   # convertit en liste de dicts
+
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+
+@app.route('/items')
+def items():
+    with open('items.json') as f:
+        data = json.load(f)
+    return render_template('items.html', items=data['items'])
 
 
 @app.route('/products')
