@@ -1,9 +1,64 @@
 >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
->>> matrix = [[1, 2, 3],[4, 5, 6]]
-
+# Cas normal
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
 >>> print(matrix_divided(matrix, 3))
 [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
 
+# La matrice originale n'est pas modifiée
+>>> print(matrix)
+[[1, 2, 3], [4, 5, 6]]
+
+# Division par un nombre négatif
 >>> print(matrix_divided(matrix, -3))
 [[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+# Division par un float
+>>> print(matrix_divided([[1, 2], [3, 4]], 2.5))
+[[0.4, 0.8], [1.2, 1.6]]
+
+# Matrice avec des floats
+>>> print(matrix_divided([[1.5, 2.5], [3.5, 4.5]], 2))
+[[0.75, 1.25], [1.75, 2.25]]
+
+# div = 0 => ZeroDivisionError
+>>> matrix_divided([[1, 2], [3, 4]], 0)
+Traceback (most recent call last):
+    ...
+ZeroDivisionError: division by zero
+
+# div n'est pas un nombre => TypeError
+>>> matrix_divided([[1, 2], [3, 4]], "3")
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number
+
+# matrix n'est pas une liste => TypeError
+>>> matrix_divided("not a matrix", 3)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# matrix contient des non-listes => TypeError
+>>> matrix_divided([1, 2, 3], 3)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# matrix contient des éléments non numériques => TypeError
+>>> matrix_divided([[1, "a"], [3, 4]], 3)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Lignes de tailles différentes => TypeError
+>>> matrix_divided([[1, 2, 3], [4, 5]], 3)
+Traceback (most recent call last):
+    ...
+TypeError: Each row of the matrix must have the same size
+
+# div est None => TypeError
+>>> matrix_divided([[1, 2], [3, 4]], None)
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number
